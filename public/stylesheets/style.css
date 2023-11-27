@@ -1,0 +1,113 @@
+/*INDEX.HTML*/
+.body {
+    background-image: url("../images/dark.jpg");
+    padding-bottom: 30px;
+    background-attachment: fixed;
+}
+.navbar-nav{
+    font-size: 20px;
+    position: fixed;
+}
+.titulo{
+    margin: auto;
+    text-align: center;
+    color: darkgoldenrod;
+    font-family: "Palatino Linotype", cursive;
+}
+.img{
+    width: 370px;
+    height: auto;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+    /*SIGN IN.HTML*/
+
+.formulary {font-family: Arial, Helvetica, sans-serif;}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #459da0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: 70px;
+}
+/*----------------------------------------------------------------------------------------------------------------------*/
+/*FILMS.HTML*/
+.imgFilms{
+width: 50px;
+height: auto;
+}
+.links{
+    font-family: Impact;
+    color: darkgoldenrod;
+}
+.peliculas{
+    color: #cccccc;
+}
+.table_style{
+    height: 100%;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0 30px 0;
+    background: darkslategrey;
+    }
+
+td,th {
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+    color: #cccccc;
+}
+
+tr:nth-child(even) {
+    background-color: #000000;
+}
+a.class_a_href{
+    pointer-events: none;
+    cursor: default;
+    color: #cccccc;
+}
+a.class_a_href_resumen{
+    pointer-events: none;
+    cursor: default;
+    color: darkgoldenrod;
+    font-style: italic;
+    font-size: medium;
+}
+.infobox-above{
+font-size: 125%;
+font-style:
+italic;
+color: #cccccc;
+}
+.th_table{
+    text-align: left;
+}
+/*---------------------------------------------------------------------------------------------------------------------*/

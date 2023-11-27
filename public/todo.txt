@@ -1,0 +1,20 @@
+PLANIFICACIÓ APROXIMADA QUAN o hauríeu de tenir implementat vosaltres
+Read:  14/02
+Delete: 24/02
+Insert:  del 04/03
+Update: 10/03
+A partir del 10/03 fins l'entrega final seria per acabar de polir petites cosetes pendents
+
+Read------->Hecho Fuera de tiempo
+BBDD------->Hecho
+Corregir funcion delete film------->Hecho
+Corregir renderizado------->Hecho
+Delete------>Hecho En la fecha correcta
+Insert------->Hecho En la fecha correcta
+corregir app.get y app.post------->Pendiente---->OK
+modifyFilForm------->Pendiente---->OK
+getModify------->Pendiente---->OK
+showModify------->Pendiente---->OK
+Update------->Pendiente---->OK
+Hacer actors.html------->Pendiente---->OK
+Documentacion api------->Pendiente---->OK

@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cinematography</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/1.0.12/jsrender.min.js"
+            integrity="sha512-0IE+tamZ/+AIGOdEJQWN32ogflnKTCC1eRi3NC3lqf7FhfmwzONIg2r3lsQJUTgAYmgtYOsihuw6jjt7adAJ7Q=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
+    <link rel="stylesheet" href="stylesheets/css.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js"
+            integrity="sha512-Gn0tSSjkIGAkaZQWjx3Ctl/0dVJuTmjW/f9QyB302kFjU4uTNP4HtA32U2qXs/TRlEsK5CoEqMEMs7LnzLOBsA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/navigo/8.11.1/navigo.min.js"
+            referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Cinematography</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./films.html">Films</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./actors.html">Actors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./contactForm.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./about.html">About me</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<script id="modify_film_template" type="text/x-handlebars-template">
+    <h1>Modify Film</h1>
+    <form id="modify_film_form">
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="{{:film.name}}">
+        <br>
+        <label for="protagonist">Protagonist</label>
+        <select name="protagonist">
+        {{for actors.actors}}
+        <option value="{{:id}}">{{:name}}</option>
+         {{/for}}
+         </select>
+        <br>
+        <label for="date">Date</label>
+        <input type="text" id="date" name="date" value="{{:film.date}}">
+        <br>
+        <!-- No queremos que el usuario introduzca el id del grupo para insertarlo.
+        Le popondremos un listado de los nombres de peliculas disponibles con un select.
+         Para ello habrá que pasar ese listado de peliculas de films al template-->
+        <label for="country">Countries</label>
+        <input type="text" id="country" name="country"{{:film.country}}>
+        <br>
+        <label for="director">Director</label>
+        <input type="text" id="director" name="director"{{:film.director}}>
+        <br>
+        <label for="img">Image</label>
+        <input type="text" id="img" name="img" value="{{:film.img}}">
+        <br>
+        <input id="modifyFilmSumbit" type="submit" value="Modificar" data-id="{{:film.id}}">
+    </form>
+</script>
+
+
+<script id="add_film_template" type="text/x-handlebars-template">
+    <h1>Insert Film</h1>
+    <form id="add_film_form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+        <br>
+        <label for="protagonist">Protagonist</label>
+        <select name="protagonist">
+        {{for actors}}
+        <option value="{{:id}}">{{:name}}</option>
+        {{/for}}
+    </select>
+         <br>
+        <label for="date">Date</label>
+        <input type="text" id="date" name="date">
+        <br>
+        <!-- No queremos que el usuario introduzca el id del grupo para insertarlo.
+        Le popondremos un listado de los nombres de peliculas disponibles con un select.
+         Para ello habrá que pasar ese listado de peliculas de films al template-->
+        <label for="country">Countries</label>
+        <input type="text" id="country" name="country" value="USA">
+
+        <br>
+        <label for="director">Director</label>
+        <input type="text" id="director" name="director">
+        <br>
+        <label for="img">Image</label>
+        <input type="text" id="img" name="img">
+        <br>
+        <input type="submit" id="submit_add_films_form">
+    </form>
+</script>
+
+<div class="titulo">
+    <h1>Films</h1>
+</div>
+<script id="films_template" type="text/x-handlebars-template">
+    <!-- La ruta para addFilm  se construye en el enlace
+    La direccion de salto (href) es relativa a este documento
+    y debe SIEMPRE empezar por hash # -->
+    <a href="#/add" class="btn btn-primary">Add</a>
+    <br>
+    <br>
+
+
+    <table id="myTable" class="table table-bordered table-dark">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Protagonist</th>
+            <th>Date</th>
+            <th>Countries</th>
+            <th>Director</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+    <tbody>
+    {{for films}}
+    <tr>
+        <td>{{:name}}</td>
+        <td>{{:protagonist}}</td>
+        <td>{{:date}}</td>
+        <td>{{:country}}</td>
+        <td>{{:director}}</td>
+        <td><img class="imagen" src="{{:img}}"></td>
+        <td>
+            <a href="#/modify?id={{:id}}" class="btn btn-warning">Modify</a>
+            <a href="#/delete?id={{:id}}" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+    {{/for}}
+    </tbody>
+    </table>
+</script>
+
+<div id="app"></div>
+
+<!-- SCRIPTS DEL USUARIO -->
+<script>
+    // Creacion del router como una constante
+    const router = new Navigo('/', {hash: true})
+    // Se definen las rutas
+    router
+        .on('/', showFilms)
+        .on('/films.html', showFilms)
+        .on('/add', addFilm)
+        .on('/modify', showModifyFilmForm)
+        .on('/delete', deleteFilm)
+
+
+    function getModifyFilmFormParams(event) {
+        event.preventDefault();
+        // Se toma el formulario a partir de su id
+        let form = $('#modify_film_form')
+        // se toman los parametros pero con form.serialize()
+        // se obtienen en formato GET y los queremos en formato POST
+        //let parameters = form.serialize();
+        //se necesita la biblioteca jquery.serializeObject() para obtenerlos en formato JSON
+        let parameters = form.serializeObject();
+        console.log(parameters)
+
+        //se recoge el id del album del parametro data-id del submit
+        let id = $(this).data("id");
+        //se llama a la api con POST
+        $.post('/api/films/' + id, parameters, function (data) {
+            // si todo ha ido bien se muestran los resultados
+            showFilms()
+        }).catch(function (error) {
+            console.log(error)
+        });
+    }
+
+    function showModifyFilmForm(params) {
+
+        let id = params.params.id;
+        $.getJSON('/api/films/' + id, function (dataFilm) {
+            //ahora se piden los datos de todos los actores puesto que queremos que escoger entre ellos
+            //y no queremos utilizar ids
+            $.getJSON('/api/actors/', function (dataActors) {
+                console.log(dataActors)
+                //como dataFilms es una lista pero queremos el primer elemento
+                console.log(dataFilm)
+                let film = dataFilm.films[0]
+
+                //construimos un objeto JSON para pasarlo al template al renderizarlo
+                let data = {
+                    'film': film,
+                    'actors': dataActors
+                }
+                console.log(data.actors.actors)
+                // ahora se renderiza el template
+                //ahora hay que crear el template de modificar a partir del template de insertar
+                let html = $("#modify_film_template").render(data);
+                $("#app").html(html);
+
+                //se pone el event handler del sumbit a partir del class del boton submit
+                $('#modifyFilmSumbit').on('click', getModifyFilmFormParams)
+            });
+        });
+
+    }
+
+
+    function showFilms() {
+        //llamada asicrona a la API
+        $.getJSON('/api/films/', function (data) {
+            //ver resultado
+            console.log(data);
+            //Con los resultados se renderiza el template
+            let html = $('#films_template').render(data);
+            //inyectar datos
+            $("#ap p").html(html);
+            $('#myTable').DataTable();
+
+        });
+
+    }
+
+    $(document).ready(function () {
+        //showFilms
+        router.navigate('/');
+    });
+
+
+    function deleteFilm(params) {
+        //No queremos,que el click nos lleve a ningun sitio
+        // se "previene" el comportamiento por defecto que ir donde apunta href
+
+        //se recoge el id del elemnto sobre el que se hizo click
+        //$(this)no devuelve esta funcion
+        // data son los datos que transporta el evento con el campo data-id
+        let id = params.params.id;
+
+        // Ahora llamaremos a la API para borrar el elemnto 'id'
+        // Haremos una llamada asíncrona con jquery
+        // Se utiliza la misma URL que mostrar films
+        // pero el tipo de peticion HTTP no es GET y no es POST
+        // es DELETE
+
+        $.ajax({
+            url: '/api/films/' + id,
+            type: 'DELETE'
+        })
+            // Si todo ha ido bien se vuelve a mostrar la lista de films
+            .then(function (result) {
+                router.navigate('/')
+            })
+            // SI hay error se saca por consola
+            .catch(function (error) {
+                console.log(error)
+            })
+    }
+
+    function addFilmForm(event) {
+        event.preventDefault();
+        <!-- Se recogen los parametros desde form -->
+        let form = $("#add_film_form");
+
+
+        //Pero estos parametros estan en formato GET
+        //Para tenerlos en formato JSON hay que utilizar
+        // jquery-serialize-object
+        let parametros = form.serializeObject();
+        //console.log(parametros);
+        //console.log('Se recogen los parametros desde el form');
+
+        //Ahora se envian con HTTP POST a la API
+        $.post('/api/films/', parametros, function (result) {
+            //Si todo ha ido bien se vuelve a mostrar la lista de films
+            //es decir se vuelve a la raiz del documento
+            router.navigate('/')
+        }).catch(function (error) {
+            console.log(error)
+        });
+    }
+
+    function addFilm() {
+        $.getJSON('/api/actors/', function (actors) {
+            let html = $("#add_film_template").render(actors);
+            $("#app").html(html);
+
+            $("#submit_add_films_form").on("click", addFilmForm);
+
+        });
+    }
+
+
+    // un poco de refactoring
+    //Se llama a la funcion ready del doucmento para ponerlo todo alli dentro
+    //Esta funcion se ejecuta SOLO cuando todo el documento esta listo
+    $(document).ready(function () {
+        //showFilms();
+        // La ruta raiz / es relativa a este documento, es decir a films.html
+        router.navigate('/')
+        $('#myTable').DataTable();
+    });
+
+</script>
+</body>
+</html>

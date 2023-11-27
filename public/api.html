@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>API JSON - Cinematography</title>
+</head>
+<body>
+<h1>API JSON - Cinematography</h1>
+<p>La siguiente API proporciona información sobre películas.</p>
+
+<h2>Rutas para películas</h2>
+<h3>Obtener todas las películas</h3>
+<p>GET /api/films/</p>
+<p>Devuelve un JSON con todas las películas. Los campos son:</p>
+<ul>
+  <li>id: identificador único de la película.</li>
+  <li>name: nombre de la película.</li>
+  <li>protagonist: id del protagonista</li>
+  <li>adaptation: si se trata de una adaptación.</li>
+  <li>date: fecha de estreno de la película.</li>
+  <li>country: país de producción de la película.</li>
+  <li>director: nombre del director.</li>
+  <li>img: URL de la imagen de la película.</li>
+</ul>
+<p>Ejemplo de respuesta:</p>
+<pre><code>{ "films": [ { "id": 1, "name": "The Godfather", "protagonist": "Marlon Brando", "adaptation": null, "date": "1972-03-24", "country": "USA", "director": "Francis Ford Coppola", "img": "https://www.imdb.com/title/tt0068646/mediaviewer/rm599965184/" }, { "id": 2, "name": "Forrest Gump", "protagonist": "Tom Hanks", "adaptation": null, "date": "1994-06-23", "country": "USA", "director": "Robert Zemeckis", "img": "https://www.imdb.com/title/tt0109830/mediaviewer/rm1748727040/" } ] }</code></pre>
+
+<h3>Obtener una película por id</h3>
+<p>GET /api/films/:id</p>
+<p>Devuelve un JSON con la película cuyo identificador es :id.</p>
+<p>Ejemplo:</p>
+<pre><code>{ "films": [ { "id": 1, "name": "The Godfather", "protagonist": "Marlon Brando", "adaptation": null, "date": "1972-03-24", "country": "USA", "director": "Francis Ford Coppola", "img": "https://www.imdb.com/title/tt0068646/mediaviewer/rm599965184/" } ] }</code></pre>
+
+<h3>Insertar una película</h3>
+<p>POST /api/films/</p>
+<p>Crea una nueva película con los datos proporcionados del formulario, y devuelve un JSON con los datos de la película</p>
+
+<h3>Eliminar una película</h3>
+<p>app.delete('/api/films/:id'</p>
+<p>Esta ruta permite eliminar una pelicula tomando el id como parámetro y la borra tambien de la base de datos.</p>
+
+<h3>Actualizar una película</h3>
+<p>POST /api/films/:id</p>
+<p>Esta ruta permite actualizar la información de una pelicula por su ID como parámetro tambien actualiza la película en la base de datos con los nuevos datos.</p>
+
+<h2>Rutas para actores</h2>
+<h3>Obtener todos los actores</h3>
+<p>GET /api/actors/</p>
+<p>Devuelve un JSON con todos los actores. Los campos son:</p>
+<li>id: identificador único del actor.</li>
+<li>name: nombre del actor.</li>
+<li>cast: id de su pelicula.</li>
+<li>birth_date: fecha de nacimiento.</li>
+<li>year_of_death: fecha de fallecimiento (si ha muerto).</li>
+<li>nationality: nacionalidad del actor.</li>
+<li>years_active: años en activo del actor.</li>
+<li>img: URL de la imagen del actor.</li>
+
+<h3>Ruta para obtener el actor y su pelicula</h3>
+   <p>GET /api/actors/all</p>
+<p>Esta ruta devuelve la información los actores, incluyendo la película en la que actuaron.</p>
+
+<h3>Obtener un actor por id</h3>
+<p>GET /api/actors/:id</p>
+<p>Devuelve un JSON con el actor cuyo identificador es id.</p>
+<p>GET /api/actors/:id</p>
+<p>Esta ruta permite obtener información sobre un actor en particular tomando el ID del actor como parámetro</p>
+
+<h3>Insertar una película por id</h3>
+<p>POST /api/actors/</p>
+<p>Crea un nuevo actor con los datos proporcionados del formulario, y devuelve un JSON con los datos del actor</p>
+
+<h3>Eliminar una actor</h3>
+<p>app.delete('/api/actor/:id'</p>
+<p>Esta ruta permite eliminar un actor tomando el id como parámetro y la borra tambien de la base de datos.</p>
+
+<h3>Actualizar actores</h3>
+<p>POST /api/actors/:id</p>
+<p>Esta ruta permite actualizar la información de un actor tomando el su ID como parámetro. Actualiza el actor correspondiente en la base de datos con los nuevos datos.</p>
+

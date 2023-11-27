@@ -1,0 +1,27 @@
+img {
+    width: 150px;
+    height: auto;
+}
+td,th {
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+    color: #cccccc;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0 30px 0;
+    background: darkslategrey;
+}
+.titulo{
+    margin: auto;
+    text-align: center;
+    color: black;
+}
+
