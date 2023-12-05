@@ -43,7 +43,7 @@ var db = require('knex')({
 //RUTAS DEL USUARIO
 
 //Rutas para films
-app.get('/api /films/',function (req, res){
+app.get('/api/films/',function (req, res){
   db.select('f.id','f.name','f.protagonist','f.adaptation','f.date','f.country','f.director','f.img')
       .from('Films as f')
       .then( function (data){
